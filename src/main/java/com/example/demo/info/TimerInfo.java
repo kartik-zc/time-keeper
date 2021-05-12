@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-// public class TimerInfo implements Serializable {
-public class TimerInfo {
+public class TimerInfo implements Serializable {
+// public class TimerInfo {
     // Seriablizable was added because of error
     // Couldn't store job: Unable to serialize JobDataMap for insertion into database because the value of property 'HelloWorld' is not serializable: com.example.demo.info.TimerInfo
     private int totalFireCount;
