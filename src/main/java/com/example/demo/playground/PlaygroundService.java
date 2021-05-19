@@ -31,4 +31,8 @@ public class PlaygroundService {
         // Generate random job id, Return generated job id to client, this job id will be used to later remove/update existing job
         this.scheduler.schedule(HelloWorld.class, info);
     }
+
+    public void removeHelloWorldJob(String jobID) {
+        this.scheduler.unschedule(jobID);
+    }
 }

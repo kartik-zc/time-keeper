@@ -31,7 +31,7 @@ public class SchedulerService {
         final Trigger trigger = TimerUtils.buildTrigger(jobClass, info);
         // Return this trigger id?
 
-        System.out.println("Job key");
+        System.out.println("Job key to be used for future ref");
         System.out.println(jobDetail.getKey());
         try {
             scheduler.scheduleJob(jobDetail, trigger);
@@ -40,6 +40,14 @@ public class SchedulerService {
         }
     }
 
+    public void unschedule(String jobID) {
+        try {
+            scheduler.deleteJob(new JobKey(jobID));
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+            LOG.error(e.getMessage(), e);
+        }
+    }
 
     @PostConstruct
     public void init() {

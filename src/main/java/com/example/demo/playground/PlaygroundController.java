@@ -3,6 +3,8 @@ package com.example.demo.playground;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +25,11 @@ public class PlaygroundController {
         // outbound queue, event meta data
         System.out.println(jsonBody);
         this.playgroundService.runHelloWorldJob(jsonBody);
+    }
+
+    @DeleteMapping("/{id}")
+    public void removeHelloWorldJob(@PathVariable("id") String jobID) {
+        // send job id which
+        this.playgroundService.removeHelloWorldJob(jobID);
     }
 }

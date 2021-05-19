@@ -17,6 +17,7 @@ public class HelloWorld implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
+        // jobDataMap.getJ
         TimerInfo info = (TimerInfo) jobDataMap.get(HelloWorld.class.getSimpleName());
         LOG.info("HELLO WORLD");
         LOG.info(info.getCallbackData());
